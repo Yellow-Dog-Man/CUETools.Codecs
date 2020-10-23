@@ -242,6 +242,10 @@ namespace CUETools.Codecs
             {
                 if (samples == null || samples.GetLength(0) < Length)
                     samples = new int[Size, PCM.ChannelCount];
+                if (dataInFloat)
+                {
+                    var dummy = Bytes;
+                }
                 if (!dataInSamples && dataInBytes && Length != 0)
                     BytesToFLACSamples(bytes, 0, samples, 0, Length, PCM.ChannelCount, PCM.BitsPerSample);
                 dataInSamples = true;
