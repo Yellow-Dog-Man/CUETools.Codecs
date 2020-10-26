@@ -25,6 +25,7 @@ namespace CUETools.Codecs.FLAKE
 	public class FlakeWriter : IAudioDest, IDisposable
 	{
 		Stream _IO = null;
+		private bool leaveOpen;
         private readonly int channels;
         private int ch_code;
         private int sr_code0;
@@ -82,7 +83,7 @@ namespace CUETools.Codecs.FLAKE
 
 		bool inited = false;
 
-        public FlakeWriter(string path, Stream IO, AudioPCMConfig pcm)
+        public FlakeWriter(string path, Stream IO, AudioPCMConfig pcm, bool leaveOpen = false)
 		{
 			PCM = pcm;
 
@@ -90,6 +91,7 @@ namespace CUETools.Codecs.FLAKE
 
 			Path = path;
 			_IO = IO;
+			this.leaveOpen = leaveOpen;
 
 			samplesBuffer = new int[Flake.MAX_BLOCKSIZE * (channels == 2 ? 4 : channels)];
 			residualBuffer = new int[Flake.MAX_BLOCKSIZE * (channels == 2 ? 10 : channels + 1)];
@@ -159,7 +161,8 @@ namespace CUETools.Codecs.FLAKE
 			if (inited)
 			{
 				WriteHeader();
-				_IO.Close();
+				if(!leaveOpen)
+					_IO.Close();
 				inited = false;
 			}
 		}
