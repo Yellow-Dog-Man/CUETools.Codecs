@@ -1,19 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+	<PackageId>YellowDogMan.CueTools.Codecs</PackageId>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageProjectUrl>https://github.com/EntangledBits/CUETools.Codecs</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/EntangledBits/CUETools.Codecs</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Yellow-Dog-Man/CueTools.Codecs</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Yellow-Dog-Man/CueTools.Codecs</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <Company>Entangled Bits</Company>
-    <Authors>Entangled Bits</Authors>
-    <Description>.net Standard port of CUETools.Codecs Original code from Gregory S. Chudov</Description>
+    <Authors>Entangled Bits, Yellow Dog Man Studios</Authors>
+    <Description>Fork of Entangled Bits .net Standard port of CUETools.Codecs Original code from Gregory S. Chudov</Description>
     <PackageLicenseUrl>https://www.gnu.org/licenses/lgpl-3.0-standalone.html</PackageLicenseUrl>
     <PackageTags>Encoding WAV PCM</PackageTags>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
     <Version>1.0.2</Version>
-    <PackageReleaseNotes>Added IDisposable to WAVReader and WAVWriter</PackageReleaseNotes>
   </PropertyGroup>
 
+ <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
