@@ -23,8 +23,8 @@ jobs:
     - name: Build
       run: | 
         dotnet build --configuration Release --no-restore -p:Version=${{ env.VERSION }}
-        dotnet pack -c Release -p:Version=${{ env.VERSION }}
+        dotnet pack --output nupkgs -c Release -p:Version=${{ env.VERSION }}
           
     - name: Publish to NuGet
       run: |
-        dotnet nuget push \**\*.nupkg -k ${{ secrets.NUGET_TOKEN }}  --source https://api.nuget.org/v3/index.json
+        dotnet nuget push nupkgs\*.nupkg -k ${{ secrets.NUGET_TOKEN }}  --source https://api.nuget.org/v3/index.json
