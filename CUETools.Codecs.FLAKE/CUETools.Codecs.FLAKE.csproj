@@ -2,18 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageProjectUrl>https://github.com/EntangledBits/CUETools.Codecs</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/EntangledBits/CUETools.Codecs</RepositoryUrl>
+	<PackageId>YellowDogMan.CueTools.Codecs.FLAKE</PackageId>
+    <PackageProjectUrl>https://github.com/Yellow-Dog-Man/CueTools.Codecs</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Yellow-Dog-Man/CueTools.Codecs</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <Company>Entangled Bits</Company>
-    <Authors>Entangled Bits</Authors>
-    <Description>.net Standard port of CUETools.Codecs.FLAKE Original code from Gregory S. Chudov and Justin Ruggles</Description>
+    <Authors>Entangled Bits, Yellow Dog Man Studios</Authors>
+    <Description>Fork of Entangled Bits .net Standard port of CUETools.Codecs.FLAKE Original code from Gregory S. Chudov and Justin Ruggles</Description>
     <PackageLicenseUrl>https://www.gnu.org/licenses/lgpl-3.0-standalone.html</PackageLicenseUrl>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>Encoding FLAC WAV PCM FLAKE</PackageTags>
     <Version>1.0.4</Version>
-    <PackageReleaseNotes>removed reader requirments for a flac file</PackageReleaseNotes>
   </PropertyGroup>
-
+  
+ <ItemGroup>
+    <None Include="../LICENSE" Pack="true" PackagePath="\"/>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
